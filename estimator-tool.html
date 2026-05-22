@@ -1,0 +1,593 @@
+<style>
+.entry-title,.site-header,header,.site-branding,.site-navigation,nav{display:none!important}
+*{box-sizing:border-box;margin:0;padding:0}
+#adr-est{font-family:Arial,sans-serif;background:#f5f7fb;color:#1f2a44;width:100%}
+#adr-est .hdr{background:#0d1f3c;padding:12px 20px;text-align:center;border-bottom:3px solid #c0392b}
+#adr-est .hdr img{height:48px;width:auto}
+#adr-est .hero{background:#0d1f3c;padding:24px 20px 30px;text-align:center}
+#adr-est .hero h1{font-size:26px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:8px}
+#adr-est .hero h1 span{color:#e75480;font-style:italic}
+#adr-est .hero p{font-size:14px;color:rgba(255,255,255,0.65)}
+
+/* STEP 1 - Address entry */
+#adr-est .step1-wrap{background:#fff;max-width:560px;margin:0 auto;padding:28px 20px}
+#adr-est .step1-wrap h2{font-size:18px;font-weight:700;color:#1f2a44;margin-bottom:8px;text-align:center}
+#adr-est .step1-wrap p{font-size:14px;color:#666;text-align:center;margin-bottom:20px;line-height:1.5}
+
+/* STEP 2 - Full form */
+#adr-est .step2-wrap{display:none;background:#fff;max-width:560px;margin:0 auto;padding:24px 20px}
+#adr-est .step2-wrap h2{font-size:17px;font-weight:700;color:#1f2a44;margin-bottom:6px;text-align:center}
+#adr-est .step2-wrap .addr-confirm{background:#e8f4e8;border:1px solid #4caf50;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#2e7d32;text-align:center}
+#adr-est .field-group{margin-bottom:14px}
+#adr-est label{display:block;font-size:12px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+#adr-est select,#adr-est input[type=text],#adr-est input[type=number],#adr-est input[type=tel]{width:100%;padding:13px 14px;font-size:15px;border:1.5px solid #ddd;border-radius:8px;background:#fff;color:#1f2a44}
+#adr-est select:focus,#adr-est input:focus{border-color:#c0392b;outline:none}
+#adr-est .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#adr-est .condition-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+#adr-est .cond-btn{padding:10px 4px;border:1.5px solid #ddd;border-radius:8px;background:#fff;font-size:12px;font-weight:600;color:#666;cursor:pointer;text-align:center}
+#adr-est .cond-btn.active{border-color:#c0392b;background:#fff0ee;color:#c0392b}
+#adr-est .est-btn{width:100%;padding:18px;font-size:17px;font-weight:700;background:#c0392b;color:#fff;border:none;border-radius:8px;cursor:pointer;margin-top:8px}
+#adr-est .est-btn:hover{background:#a93226}
+#adr-est .microcopy{font-size:11px;color:#999;text-align:center;margin-top:8px}
+
+/* OUT OF AREA */
+#adr-est .out-of-area{display:none;background:#fff;max-width:560px;margin:0 auto;padding:32px 20px;text-align:center}
+#adr-est .out-of-area .ooa-icon{font-size:40px;margin-bottom:16px}
+#adr-est .out-of-area h2{font-size:20px;font-weight:700;color:#1f2a44;margin-bottom:12px}
+#adr-est .out-of-area p{font-size:14px;color:#666;line-height:1.6;margin-bottom:20px}
+#adr-est .out-of-area .ooa-call{display:block;width:100%;padding:16px;font-size:16px;font-weight:700;background:#c0392b;color:#fff;text-align:center;text-decoration:none;border-radius:8px;margin-bottom:10px}
+#adr-est .out-of-area .ooa-sub{font-size:12px;color:#999;margin-top:8px}
+
+/* PROCESSING */
+#adr-est .processing{display:none;text-align:center;padding:40px 20px;background:#fff;max-width:560px;margin:0 auto}
+#adr-est .spin{display:inline-block;font-size:36px;margin-bottom:14px}
+#adr-est .processing h3{font-size:18px;color:#1f2a44;margin-bottom:8px}
+#adr-est .processing p{font-size:14px;color:#666;line-height:1.6}
+
+/* RESULT */
+#adr-est .result{display:none;max-width:560px;margin:0 auto;padding:0 0 30px}
+#adr-est .result-header{background:#0d1f3c;padding:22px 20px;text-align:center}
+#adr-est .result-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c8a050;margin-bottom:8px;display:block}
+#adr-est .result-range{font-size:34px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:4px}
+#adr-est .result-median{font-size:13px;color:rgba(255,255,255,0.6)}
+#adr-est .result-body{background:#fff;padding:20px}
+#adr-est .comp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+#adr-est .comp-stat{background:#f5f7fb;border-radius:8px;padding:12px 8px;text-align:center}
+#adr-est .comp-num{font-size:17px;font-weight:700;color:#1f2a44;display:block}
+#adr-est .comp-lbl{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;display:block;margin-top:2px}
+#adr-est .warning-box{background:#fff8e6;border:1px solid #f0c040;border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:13px;color:#7a5c00;line-height:1.6}
+#adr-est .variance-box{background:#f0f4ff;border:1px solid #c0cef5;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:13px;color:#2a3a7a;line-height:1.6}
+#adr-est .disclaimer{background:#f5f7fb;border-left:3px solid #c0392b;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:20px;font-size:12px;color:#777;line-height:1.7}
+#adr-est .contact-gate{border:1.5px solid #eee;border-radius:10px;padding:20px;margin-bottom:16px;background:#fff}
+#adr-est .agent-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #eee}
+#adr-est .agent-photo{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top center;border:3px solid #c0392b;flex-shrink:0}
+#adr-est .agent-name{font-size:15px;font-weight:700;color:#1f2a44;margin-bottom:2px}
+#adr-est .agent-sub{font-size:12px;color:#666;line-height:1.5}
+#adr-est .gate-headline{font-size:16px;font-weight:700;color:#1f2a44;margin-bottom:6px;text-align:center}
+#adr-est .gate-sub{font-size:13px;color:#666;text-align:center;margin-bottom:14px;line-height:1.5}
+#adr-est .gate-input{width:100%;padding:13px 14px;font-size:15px;border:1.5px solid #ddd;border-radius:8px;margin-bottom:10px;color:#1f2a44;background:#fff}
+#adr-est .gate-input:focus{border-color:#c0392b;outline:none}
+#adr-est .gate-btn{width:100%;padding:16px;font-size:16px;font-weight:700;background:#c0392b;color:#fff;border:none;border-radius:8px;cursor:pointer}
+#adr-est .gate-microcopy{font-size:11px;color:#999;text-align:center;margin-top:8px}
+#adr-est .submitted-msg{display:none;background:#e8f4e8;border:1px solid #4caf50;border-radius:8px;padding:16px;text-align:center;margin-bottom:16px;font-size:14px;color:#2e7d32;line-height:1.6}
+#adr-est .cta-call{display:block;width:100%;padding:16px;font-size:16px;font-weight:700;background:#1f2a44;color:#fff;text-align:center;text-decoration:none;border-radius:8px;margin-bottom:10px}
+#adr-est .reviews{padding:16px 20px;background:#f5f7fb}
+#adr-est .rev-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#999;text-align:center;margin-bottom:12px}
+#adr-est .review{border-left:3px solid #c0392b;padding:10px 14px;margin-bottom:10px;background:#fff;border-radius:0 8px 8px 0}
+#adr-est .rev-stars{color:#d4a017;font-size:13px;margin-bottom:4px}
+#adr-est .rev-text{font-size:13px;color:#555;font-style:italic;line-height:1.5;margin-bottom:4px}
+#adr-est .rev-author{font-size:12px;font-weight:700;color:#1f2a44}
+#adr-est .stats-bar{display:grid;grid-template-columns:repeat(3,1fr);padding:14px 20px;background:#0d1f3c}
+#adr-est .stat-n{font-size:20px;font-weight:700;color:#c8a050;text-align:center;display:block}
+#adr-est .stat-l{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;text-align:center;display:block}
+#adr-est .footer-bar{text-align:center;padding:14px;font-size:11px;color:#999;border-top:1px solid #eee;background:#fff}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@media(max-width:480px){
+#adr-est .hero h1{font-size:21px}
+#adr-est .result-range{font-size:26px}
+#adr-est .row2{grid-template-columns:1fr}
+#adr-est .condition-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+
+<script>
+var mls={
+  durant_house:{count:39,min:106000,max:570000,median:225000,q1:176000,q3:290000,ppsf:143},
+  durant_factory:{count:2,min:225000,max:420000,median:322500,q1:225000,q3:420000,ppsf:146,limited:true},
+  calera_house:{count:13,min:140000,max:559000,median:253800,q1:189000,q3:305000,ppsf:165},
+  madill_house:{count:10,min:70000,max:285000,median:180500,q1:86000,q3:250000,ppsf:122},
+  madill_factory:{count:3,min:65000,max:315000,median:116000,q1:65000,q3:315000,ppsf:104},
+  kingston_house:{count:16,min:150975,max:935000,median:422000,q1:215000,q3:604225,ppsf:208},
+  kingston_factory:{count:5,min:30000,max:365000,median:150000,q1:120000,q3:165000,ppsf:125},
+  silo_area:{count:19,min:230874,max:537500,median:335000,q1:250000,q3:475000,ppsf:177},
+  mead:{count:3,min:265000,max:850000,median:325000,q1:265000,q3:850000,ppsf:200,limited:true,waterfront_note:true},
+  silo_town:{count:1,min:282300,max:282300,median:282300,q1:282300,q3:282300,ppsf:211,limited:true},
+  whitesboro_house:{count:30,min:120000,max:750000,median:386000,q1:280000,q3:500000,ppsf:175},
+  gordonville_house:{count:12,min:80000,max:400000,median:198000,q1:130000,q3:280000,ppsf:130,limited:true},
+  pottsboro_house:{count:49,min:150000,max:850000,median:345000,q1:240000,q3:470000,ppsf:168},
+  denison_house:{count:133,min:33000,max:800000,median:240000,q1:160000,q3:320000,ppsf:140},
+  sherman_house:{count:280,min:68000,max:900000,median:283250,q1:185000,q3:390000,ppsf:152}
+};
+
+var selCond='average';
+var snap={};
+var capturedAddress='';
+var capturedCity='';
+
+function fmt(n){return '$'+Math.round(n).toLocaleString();}
+function fmtK(n){
+  if(n>=1000000) return '$'+(n/1000000).toFixed(2).replace(/\.?0+$/,'')+'M';
+  if(n>=1000) return '$'+Math.round(n/1000)+'K';
+  return '$'+n;
+}
+
+function selCondition(v){
+  selCond=v;
+  document.querySelectorAll('#adr-est .cond-btn').forEach(function(b){
+    b.classList.toggle('active',b.dataset.val===v);
+  });
+}
+
+function condMult(c){return{excellent:1.12,good:1.05,average:1.0,fair:0.91,poor:0.80}[c]||1.0;}
+
+function getCityKey(city,ptype){
+  var c=city.toLowerCase().trim();
+  var isFac=(ptype==='factory');
+  if(c.indexOf('durant')>=0) return isFac?'durant_factory':'durant_house';
+  if(c.indexOf('calera')>=0) return 'calera_house';
+  if(c.indexOf('madill')>=0) return isFac?'madill_factory':'madill_house';
+  if(c.indexOf('kingston')>=0) return isFac?'kingston_factory':'kingston_house';
+  if(c.indexOf('silo')>=0) return 'silo_area';
+  if(c.indexOf('mead')>=0) return 'mead';
+  if(c.indexOf('whitesboro')>=0) return 'whitesboro_house';
+  if(c.indexOf('gordonville')>=0) return 'gordonville_house';
+  if(c.indexOf('pottsboro')>=0) return 'pottsboro_house';
+  if(c.indexOf('denison')>=0) return 'denison_house';
+  if(c.indexOf('sherman')>=0) return 'sherman_house';
+  return null;
+}
+
+// STEP 1 - Address + City submit
+function submitStep1(){
+  var addrField=document.getElementById('step1-addr');
+  var cityField=document.getElementById('step1-city');
+  var addr=addrField?addrField.value.trim():'';
+  var city=cityField?cityField.value.trim():'';
+
+  if(!addr){alert('Please enter your property address.');return false;}
+  if(!city){alert('Please enter your city.');return false;}
+
+  capturedAddress=addr;
+  capturedCity=city;
+  try{sessionStorage.setItem('adr_addr',addr);sessionStorage.setItem('adr_city',city);}catch(ex){}
+  var hiddenCity=document.getElementById('step2-city');
+  if(hiddenCity) hiddenCity.value=city;
+  var displayCity=document.getElementById('step2-city-display');
+  if(displayCity) displayCity.value=city;
+
+  // Fire Zapier Tier 1 - address + city captured
+  var pd=new FormData();
+  pd.append('type','STEP 1 - Address Captured');
+  pd.append('address',addr);
+  pd.append('city',city);
+  pd.append('name','No contact yet');
+  pd.append('phone','Address only - Step 2 not completed');
+  fetch('https://hooks.zapier.com/hooks/catch/25562661/u787exq/',{method:'POST',body:pd});
+
+  var s1=document.getElementById('adr-step1');
+  var s2=document.getElementById('adr-step2');
+  if(s1) s1.setAttribute('style','display:none!important');
+  if(s2) s2.setAttribute('style','display:block!important');
+  document.getElementById('addr-confirm').textContent='Property: '+addr+', '+city;
+  window.scrollTo(0,0);
+  return false;
+}
+
+// STEP 2 - Full form submit
+function submitStep2(){
+  var displayCity=document.getElementById('step2-city-display');
+  if(displayCity&&displayCity.value) capturedCity=displayCity.value;
+  var hiddenCity=document.getElementById('step2-city');
+  if(hiddenCity&&hiddenCity.value) capturedCity=capturedCity||hiddenCity.value;
+  try{
+    if(!capturedCity){capturedCity=sessionStorage.getItem('adr_city')||'';}
+    if(!capturedAddress){capturedAddress=sessionStorage.getItem('adr_addr')||'';}
+  }catch(ex){}
+  var ptype=document.getElementById('est-ptype').value;
+  var sqft=parseInt(document.getElementById('est-sqft').value)||0;
+  var beds=parseInt(document.getElementById('est-beds').value)||0;
+  var baths=parseInt(document.getElementById('est-baths').value)||0;
+  var year=parseInt(document.getElementById('est-year').value)||1990;
+
+  if(!ptype||sqft<200){alert('Please fill in all required fields.');return false;}
+
+  var areaKey=getCityKey(capturedCity,ptype);
+
+  // Out of area check — show soft redirect immediately
+  if(!areaKey){
+    // Fire Zapier Tier 2 with out-of-area flag
+    var pd=new FormData();
+    pd.append('type','STEP 2 - Out Of Area - No Contact Yet');
+    pd.append('address',capturedAddress);
+    pd.append('city',capturedCity);
+    pd.append('area','Out of area - '+capturedCity);
+    pd.append('property_type',ptype==='factory'?'Factory Built/Mobile':'Site-Built House');
+    pd.append('sqft',sqft);
+    pd.append('beds',beds);
+    pd.append('baths',baths);
+    pd.append('year_built',year);
+    pd.append('condition',selCond);
+    pd.append('estimate_shown','N/A - Out of area');
+    pd.append('name','No contact yet');
+    pd.append('phone','Out of area - no estimate shown');
+    fetch('https://hooks.zapier.com/hooks/catch/25562661/u787exq/',{method:'POST',body:pd});
+
+    document.getElementById('adr-step2').setAttribute('style','display:none!important');
+    document.getElementById('adr-out-of-area').setAttribute('style','display:block!important');
+    window.scrollTo(0,0);
+    return false;
+  }
+
+  snap={area:areaKey,ptype:ptype,sqft:sqft,beds:beds,baths:baths,year:year,condition:selCond,address:capturedAddress,city:capturedCity};
+
+  // Fire Zapier Tier 2 - property details
+  var pd2=new FormData();
+  pd2.append('type','STEP 2 - Property Details - No Contact Yet');
+  pd2.append('address',capturedAddress);
+  pd2.append('city',capturedCity);
+  pd2.append('area',areaKey);
+  pd2.append('property_type',ptype==='factory'?'Factory Built/Mobile':'Site-Built House');
+  pd2.append('sqft',sqft);
+  pd2.append('beds',beds);
+  pd2.append('baths',baths);
+  pd2.append('year_built',year);
+  pd2.append('condition',selCond);
+  pd2.append('name','No contact yet');
+  pd2.append('phone','Property details only');
+  fetch('https://hooks.zapier.com/hooks/catch/25562661/u787exq/',{method:'POST',body:pd2});
+
+  document.getElementById('adr-step2').setAttribute('style','display:none!important');
+  var proc=document.getElementById('adr-processing');
+  proc.setAttribute('style','display:block!important');
+  var spinEl=proc.querySelector('.spin');
+  if(spinEl) spinEl.style.animation='spin 1.2s linear infinite';
+  window.scrollTo(0,0);
+
+  setTimeout(function(){showResult();},2800);
+  return false;
+}
+
+function showResult(){
+  var key=snap.area;
+  var data=key?mls[key]:null;
+
+  document.getElementById('adr-processing').setAttribute('style','display:none!important');
+  var resultEl=document.getElementById('adr-result');
+  resultEl.setAttribute('style','display:block!important');
+  window.scrollTo(0,0);
+
+  if(!data){
+    document.getElementById('est-result-header').innerHTML=
+      '<span class="result-eyebrow">American Dream Realty</span>'+
+      '<div class="result-range" style="font-size:20px;padding:10px 0;">We Need More Info For Your Area</div>'+
+      '<div class="result-median">Our team will reach out with local data</div>';
+    document.getElementById('est-comp-stats').innerHTML='';
+    document.getElementById('est-warnings').innerHTML=
+      '<div class="warning-box">&#9888; We don\'t currently have enough sold data for your specific area to generate a reliable estimate. '+
+      'Call Jason directly at <strong>580-564-6583</strong> — he knows this market and can give you a real number based on actual local sales.</div>';
+    document.getElementById('est-variance').innerHTML='';
+    document.getElementById('est-disclaimer').innerHTML='';
+    document.getElementById('est-contact-gate').setAttribute('style','display:block!important');
+
+    // Fire Zapier with no-data flag
+    var pdx=new FormData();
+    pdx.append('type','ESTIMATE SHOWN - No Data For Area');
+    pdx.append('address',snap.address);
+    pdx.append('city',snap.city);
+    pdx.append('area',snap.area);
+    pdx.append('property_type',snap.ptype==='factory'?'Factory Built/Mobile':'Site-Built House');
+    pdx.append('sqft',snap.sqft);
+    pdx.append('beds',snap.beds);
+    pdx.append('baths',snap.baths);
+    pdx.append('year_built',snap.year);
+    pdx.append('condition',snap.condition);
+    pdx.append('estimate_shown','No data available for area');
+    pdx.append('comp_count',0);
+    pdx.append('name','No contact yet');
+    pdx.append('phone','Estimate shown only');
+    fetch('https://hooks.zapier.com/hooks/catch/25562661/u787exq/',{method:'POST',body:pdx});
+    return;
+  }
+
+  var ageMult=1.0;
+  var age=2026-snap.year;
+  if(age<5) ageMult=1.08;
+  else if(age<15) ageMult=1.03;
+  else if(age<30) ageMult=1.0;
+  else if(age<50) ageMult=0.97;
+  else ageMult=0.93;
+
+  var basePrice=data.ppsf*snap.sqft*condMult(snap.condition)*ageMult;
+  var spread=(data.q3-data.q1)/Math.max(data.median,1);
+  var lo=Math.round(basePrice*(1-spread*0.45)/5000)*5000;
+  var hi=Math.round(basePrice*(1+spread*0.45)/5000)*5000;
+  lo=Math.max(lo,data.min*0.65);
+  hi=Math.min(hi,data.max*1.35);
+  if(hi<=lo) hi=Math.round(lo*1.15/5000)*5000;
+
+  snap.estimateLow=lo;
+  snap.estimateHigh=hi;
+  snap.estimateText=fmtK(lo)+' \u2013 '+fmtK(hi);
+  snap.compCount=data.count;
+
+  // Fire Zapier Tier 3 - estimate shown
+  var pd3=new FormData();
+  pd3.append('type','ESTIMATE SHOWN - No Contact Yet');
+  pd3.append('address',snap.address);
+  pd3.append('city',snap.city);
+  pd3.append('area',snap.area);
+  pd3.append('property_type',snap.ptype==='factory'?'Factory Built/Mobile':'Site-Built House');
+  pd3.append('sqft',snap.sqft);
+  pd3.append('beds',snap.beds);
+  pd3.append('baths',snap.baths);
+  pd3.append('year_built',snap.year);
+  pd3.append('condition',snap.condition);
+  pd3.append('estimate_shown',snap.estimateText);
+  pd3.append('comp_count',data.count);
+  pd3.append('name','No contact yet');
+  pd3.append('phone','Estimate shown only');
+  fetch('https://hooks.zapier.com/hooks/catch/25562661/u787exq/',{method:'POST',body:pd3});
+
+  document.getElementById('est-result-header').innerHTML=
+    '<span class="result-eyebrow">Q1 2026 Market Estimate \u2014 '+snap.area+'</span>'+
+    '<div class="result-range">'+fmtK(lo)+' \u2013 '+fmtK(hi)+'</div>'+
+    '<div class="result-median">Based on '+data.count+' comparable sales \u2022 Median: '+fmt(data.median)+'</div>';
+
+  document.getElementById('est-comp-stats').innerHTML=
+    '<div class="comp-stat"><span class="comp-num">'+data.count+'</span><span class="comp-lbl">Comp Sales</span></div>'+
+    '<div class="comp-stat"><span class="comp-num">'+fmt(data.median)+'</span><span class="comp-lbl">Median Price</span></div>'+
+    '<div class="comp-stat"><span class="comp-num">$'+data.ppsf+'</span><span class="comp-lbl">Avg $/SqFt</span></div>';
+
+  var warnings='';
+  if(data.limited||data.count<=3){
+    warnings+='<div class="warning-box">&#9888; <strong>Limited data notice:</strong> Only '+data.count+' comparable '+
+      (data.count===1?'sale':'sales')+' on record for this area in Q1 2026. This estimate carries more uncertainty than higher-volume areas. '+
+      'Call Jason for a more precise analysis: <strong>580-564-6583</strong></div>';
+  }
+  if(snap.area==='mead'||data.waterfront_note){
+    warnings+='<div class="warning-box">&#127958; <strong>Waterfront notice:</strong> Mead includes Lake Texoma waterfront properties with boat docks that can sell significantly above standard residential comps. '+
+      'If your property has lake access or a dock, your value may differ substantially. Call Jason for a waterfront-specific analysis.</div>';
+  }
+  if(snap.area==='kingston'&&snap.ptype!=='factory'){
+    warnings+='<div class="warning-box">&#127958; <strong>Lake Texoma notice:</strong> Kingston includes a wide range of properties from rural residential to lake access homes. '+
+      'If your property has waterfront access, a Corps lease, or boat dock, your value may be significantly higher than this range. Call Jason for a lake-specific valuation.</div>';
+  }
+  document.getElementById('est-warnings').innerHTML=warnings;
+
+  document.getElementById('est-variance').innerHTML=
+    '<div class="variance-box">&#128204; <strong>Why is there a range?</strong> Your exact value depends on your property\'s specific condition, recent updates, lot characteristics, and current buyer demand in your neighborhood. '+
+    'This estimate is based on real Q1 2026 Texoma sales \u2014 a local market expert can narrow this range for your specific property.</div>';
+
+  document.getElementById('est-disclaimer').innerHTML=
+    '<div class="disclaimer">This estimate is based on real Q1 2026 Texoma MLS closed sales. Your exact value depends on condition, updates, lot size, acreage, waterfront access, and location details not captured here. '+
+    'This is a starting point, not an appraisal.</div>';
+
+  document.getElementById('est-contact-gate').setAttribute('style','display:block!important');
+}
+
+function submitContact(e){
+  e.preventDefault();
+  var name=document.getElementById('gate-name').value.trim();
+  var phone=document.getElementById('gate-phone').value.trim();
+  var email=document.getElementById('gate-email').value.trim();
+  if(!name||!phone){alert('Please enter your name and phone number.');return false;}
+
+  var pd=new FormData();
+  pd.append('type','COMPLETE LEAD - ADR Estimator');
+  pd.append('name',name);
+  pd.append('phone',phone);
+  pd.append('email',email||'Not provided');
+  pd.append('address',snap.address||capturedAddress||'Not provided');
+  pd.append('city',snap.city||capturedCity||'Not provided');
+  pd.append('area',snap.area||'');
+  pd.append('property_type',snap.ptype==='factory'?'Factory Built/Mobile':'Site-Built House');
+  pd.append('sqft',snap.sqft||'');
+  pd.append('beds',snap.beds||'');
+  pd.append('baths',snap.baths||'');
+  pd.append('year_built',snap.year||'');
+  pd.append('condition',snap.condition||'');
+  pd.append('estimate_shown',snap.estimateText||'');
+  pd.append('comp_count',snap.compCount||'');
+  fetch('https://hooks.zapier.com/hooks/catch/25562661/u787exq/',{method:'POST',body:pd});
+
+  setTimeout(function(){window.location.href='https://americandreamrealtyok.com/thank-you-2/';},800);
+  return false;
+}
+</script>
+
+<div id="adr-est">
+
+  <div class="hdr">
+    <img src="https://americandreamrealtyok.com/wp-content/uploads/2026/04/ADR-LOGO-no-Contact-info-WHITE-BACKGROUND-Copy-1.jpg" alt="American Dream Realty">
+  </div>
+
+  <div class="hero">
+    <h1>You're About to See What Your Texoma Home<br><span>Is Really Worth</span></h1>
+    <p>Built from real Texoma-area sales data &mdash; follow the steps and get your estimate in under 60 seconds</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.8);margin-top:8px;">&#10003; Real Texoma sales data &nbsp;&middot;&nbsp; &#10003; No obligation &nbsp;&middot;&nbsp; &#10003; Results in under 60 seconds</p>
+  </div>
+
+  <!-- STEP 1: ADDRESS + CITY -->
+  <div id="adr-step1">
+    <div class="step1-wrap">
+      <h2>Start with your property address</h2>
+      <p>Enter your address and we&rsquo;ll pull comparable sales in your area from our local MLS database.</p>
+      <form onsubmit="return submitStep1();">
+      <div class="field-group">
+        <label>Property Address *</label>
+        <input type="text" id="step1-addr" name="step1-addr" placeholder="e.g. 123 Lake Shore Drive" required>
+      </div>
+      <div class="field-group">
+        <label>City *</label>
+        <input type="text" id="step1-city" name="step1-city" placeholder="e.g. Kingston, Durant, Sherman" required>
+      </div>
+      <button type="submit" class="est-btn">Get My Texoma Estimate &rarr;</button>
+      <p class="microcopy">No spam. No obligation. Real local data.</p>
+      </form>
+    </div>
+    <div class="reviews">
+      <p class="rev-title">What Texoma homeowners say</p>
+      <div class="review">
+        <p class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;Can&rsquo;t say enough great things about American Dream Realty! We changed the contract and amounts multiple times and Mr. Hightower was so kind and patient getting every change done quickly. He coached us through the entire process.&rdquo;</p>
+        <p class="rev-author">J.R. Short &middot; Local Guide</p>
+      </div>
+      <div class="review">
+        <p class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;Jason is hands down one of the best realtors there is. Used him 4 times whether selling or buying. Always patient and answered every single question.&rdquo;</p>
+        <p class="rev-author">Jovannie G. &middot; Madill, OK</p>
+      </div>
+      <div class="review">
+        <p class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;Cannot speak highly enough about Jason. Always reliable, honest, and amazed at his quick response no matter what time or day it is.&rdquo;</p>
+        <p class="rev-author">Tresa &middot; Kingston, OK</p>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <div><span class="stat-n">22</span><span class="stat-l">Years</span></div>
+      <div><span class="stat-n">1,000s</span><span class="stat-l">Homes Sold</span></div>
+      <div><span class="stat-n">3</span><span class="stat-l">Counties</span></div>
+    </div>
+    <div class="footer-bar">Copyright American Dream Realty &middot; Kingston, Oklahoma &middot; 580-564-6583</div>
+  </div>
+
+  <!-- STEP 2: FULL PROPERTY FORM -->
+  <div id="adr-step2" style="display:none;">
+    <p style="text-align:center;font-size:13px;color:#666;padding:10px 20px 0;max-width:560px;margin:0 auto;">Takes about 30 seconds &mdash; helps us match your home to the most accurate comps</p>
+    <div class="step2-wrap">
+      <h2>Tell us about your property</h2>
+      <div class="addr-confirm" id="addr-confirm"></div>
+      <div id="step2Form">
+        <input type="hidden" id="step2-city" name="step2-city">
+        <div class="field-group">
+          <label>Property Type *</label>
+          <select id="est-ptype" required>
+            <option value="">Select type...</option>
+            <option value="house">Site-Built House</option>
+            <option value="factory">Mobile / Manufactured / Modular</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Square Footage *</label>
+          <input type="number" id="est-sqft" placeholder="e.g. 1800" min="200" max="10000" required>
+        </div>
+        <div class="row2">
+          <div class="field-group">
+            <label>Bedrooms</label>
+            <select id="est-beds">
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Bathrooms</label>
+            <select id="est-baths">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Year Built</label>
+          <input type="number" id="est-year" placeholder="e.g. 1995" min="1900" max="2026" value="1990">
+        </div>
+        <div class="field-group">
+          <label>Overall Condition</label>
+          <div class="condition-grid">
+            <button type="button" class="cond-btn" data-val="excellent" onclick="selCondition('excellent')">Excellent</button>
+            <button type="button" class="cond-btn" data-val="good" onclick="selCondition('good')">Good</button>
+            <button type="button" class="cond-btn active" data-val="average" onclick="selCondition('average')">Average</button>
+            <button type="button" class="cond-btn" data-val="fair" onclick="selCondition('fair')">Fair</button>
+            <button type="button" class="cond-btn" data-val="poor" onclick="selCondition('poor')">Poor</button>
+          </div>
+        </div>
+        <button type="button" id="step2-submit-btn" onclick="submitStep2()">Get My Estimate &rarr;</button>
+        <p class="microcopy">No spam. No obligation. Real local data.</p>
+        <p style="font-size:12px;color:#888;text-align:center;margin-top:6px;">We use real Texoma MLS data &mdash; not automated estimates</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUT OF AREA -->
+  <div id="adr-out-of-area" class="out-of-area" style="display:none;">
+    <div class="ooa-icon">&#128205;</div>
+    <h2>Your property is outside our current data area</h2>
+    <p>We&rsquo;re still building our comparable sales database for your area. Rather than give you a number we can&rsquo;t stand behind, Jason will personally assess your property&rsquo;s value based on actual local sales.</p>
+    <p>Call or text Jason directly &mdash; he&rsquo;ll give you a real number, not a guess.</p>
+    <a href="tel:5805646583" class="ooa-call">&#128222; Call or Text Jason &mdash; 580-564-6583</a>
+    <p class="ooa-sub">American Dream Realty &middot; Kingston, Oklahoma</p>
+  </div>
+
+  <!-- PROCESSING -->
+  <div id="adr-processing" class="processing">
+    <div class="spin">&#8987;</div>
+    <h3>Analyzing your property...</h3>
+    <p>Pulling Q1 2026 comparable sales<br>in your area. Just a moment.</p>
+  </div>
+
+  <!-- STEP 3: RESULT -->
+  <div id="adr-result" class="result">
+    <div class="result-header" id="est-result-header"></div>
+    <div class="result-body">
+      <div class="comp-stats" id="est-comp-stats"></div>
+      <div id="est-warnings"></div>
+      <div id="est-variance"></div>
+      <div id="est-disclaimer"></div>
+
+      <!-- CONTACT GATE -->
+      <div id="est-contact-gate" class="contact-gate" style="display:none;">
+        <div class="agent-row">
+          <img class="agent-photo" src="https://americandreamrealtyok.com/wp-content/uploads/2026/04/51B826DA-FEAE-4F4F-997D-2FED7701E49C.jpg" alt="Jason Hightower">
+          <div>
+            <div class="agent-name">Jason Hightower</div>
+            <div class="agent-sub">Broker / Owner &mdash; American Dream Realty<br><em>Not an online algorithm</em></div>
+          </div>
+        </div>
+        <p class="gate-headline">Get My Exact Price</p>
+        <p class="gate-sub">A local market expert from American Dream Realty will personally call you within 30 minutes to refine this estimate based on your property&rsquo;s specific features, condition, and current buyer demand.</p>
+        <form onsubmit="return submitContact(event);">
+          <input type="text" id="gate-name" class="gate-input" placeholder="Your Name" required>
+          <input type="tel" id="gate-phone" class="gate-input" placeholder="Phone Number" required>
+          <input type="email" id="gate-email" class="gate-input" placeholder="Email (optional)">
+          <button type="submit" class="gate-btn">Get My Exact Price &rarr;</button>
+          <p class="gate-microcopy">You&rsquo;ll hear from Jason or one of his licensed local specialists &mdash; not a call center.</p>
+        </form>
+      </div>
+
+      <div id="est-submitted" class="submitted-msg">
+        &#10003; <strong>Got it!</strong> A local market expert will call you within 30 minutes.<br>
+        In the meantime, call or text Jason directly at <strong>580-564-6583</strong>
+      </div>
+
+      <a href="tel:5805646583" class="cta-call">&#128222; Call Jason Now &mdash; 580-564-6583</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var btn = document.getElementById('step2-submit-btn');
+  if(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      submitStep2();
+    });
+  }
+});
+</script>
