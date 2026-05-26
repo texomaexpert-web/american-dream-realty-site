@@ -1,0 +1,401 @@
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* === ADR LANDING PAGE — SCOPED === */
+.adr-lp,.adr-lp *,.adr-lp *::before,.adr-lp *::after{margin:0;padding:0;box-sizing:border-box}
+.adr-lp{
+  --font-heading:'Outfit',system-ui,sans-serif;
+  --font-body:'Libre Franklin',system-ui,sans-serif;
+  --navy:#162B45;--navy-hover:#1E3D5E;--navy-dark:#0F1E33;
+  --white:#FFFFFF;--warm-white:#F8F6F3;
+  --slate:#6B7A8D;--slate-light:#94A3B8;
+  --lake:#4A8BAD;--lake-hover:#3D7694;
+  --sand:#D4B896;--sand-light:#E8DBC8;
+  --cta-red:#B5342A;--cta-red-hover:#9A2B22;
+  --border:#E5E0D8;
+  --radius-md:6px;--radius-lg:12px;
+  --shadow-hover:0 12px 32px rgba(22,43,69,0.14);
+  font-family:var(--font-body);color:var(--navy);background:var(--warm-white);-webkit-font-smoothing:antialiased;line-height:1.65;font-size:16px;
+}
+.adr-lp a{color:inherit;text-decoration:none}
+.adr-lp .container{max-width:1200px;margin:0 auto;padding:0 24px}
+.adr-lp img{max-width:100%;height:auto}
+
+/* HERO */
+.adr-lp .hero{background:var(--navy) url('https://americandreamrealtyok.com/wp-content/uploads/2026/05/hero-sunset.jpg') center/cover no-repeat;padding:72px 0 56px;position:relative;overflow:hidden}
+.adr-lp .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to right,rgba(15,30,51,0.88) 0%,rgba(15,30,51,0.7) 50%,rgba(15,30,51,0.5) 100%);pointer-events:none}
+.adr-lp .hero-content{max-width:680px;position:relative;z-index:1}
+.adr-lp .hero-eyebrow{font-family:var(--font-heading);font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+.adr-lp .hero h1{font-family:var(--font-heading);font-size:42px;font-weight:600;color:var(--white);line-height:1.15;margin-bottom:14px}
+.adr-lp .hero h1 span{color:var(--sand)}
+.adr-lp .hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:28px;max-width:540px}
+.adr-lp .hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.adr-lp .btn{font-family:var(--font-heading);font-weight:600;font-size:15px;padding:14px 26px;border-radius:var(--radius-md);border:none;cursor:pointer;transition:all 0.2s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none;line-height:1}
+.adr-lp .btn:active{transform:scale(0.98)}
+.adr-lp .btn-cta{background:var(--cta-red);color:var(--white)}.adr-lp .btn-cta:hover{background:var(--cta-red-hover)}
+.adr-lp .btn-white{background:var(--white);color:var(--navy)}.adr-lp .btn-white:hover{background:#f0eeeb}
+.adr-lp .btn-secondary{background:rgba(255,255,255,0.1);color:var(--white);border:1px solid rgba(255,255,255,0.2)}.adr-lp .btn-secondary:hover{background:rgba(255,255,255,0.18)}
+.adr-lp .hero-phone{display:flex;align-items:center;gap:10px;margin-bottom:36px;position:relative;z-index:1}
+.adr-lp .hero-phone a{font-family:var(--font-heading);font-weight:600;font-size:16px;white-space:nowrap;color:var(--white);border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:1px;transition:border-color 0.2s}.adr-lp .hero-phone a:hover{border-color:var(--white)}
+.adr-lp .hero-phone span{font-size:13px;color:rgba(255,255,255,0.45)}
+.adr-lp .trust-bar{display:flex;gap:28px;flex-wrap:wrap;position:relative;z-index:1}
+.adr-lp .trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:13px}
+.adr-lp .trust-number{font-family:var(--font-heading);font-weight:600;font-size:18px;color:var(--white)}
+
+/* SECTION HEADERS */
+.adr-lp .section-header{text-align:center;margin-bottom:44px}
+.adr-lp .section-header h2{font-family:var(--font-heading);font-size:32px;font-weight:600;color:var(--navy);margin-bottom:10px}
+.adr-lp .section-header p{font-size:16px;color:var(--slate);max-width:560px;margin:0 auto;line-height:1.55}
+
+/* COMMUNITY CARDS */
+.adr-lp .communities-section{padding:80px 0 60px;background:var(--white)}
+.adr-lp .community-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.adr-lp .community-card{border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;display:block;color:inherit;position:relative;transition:transform 0.3s ease,box-shadow 0.3s ease}
+.adr-lp .community-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.adr-lp .card-image-wrap{position:relative;width:100%;height:140px;overflow:hidden}
+.adr-lp .card-img{width:100%;height:100%;object-fit:cover}
+.adr-lp .card-overlay{position:absolute;bottom:0;left:0;right:0;padding:28px 16px 12px;background:linear-gradient(to top,rgba(15,30,51,0.8) 0%,rgba(15,30,51,0.3) 70%,transparent 100%);z-index:2}
+.adr-lp .card-overlay h3{font-family:var(--font-heading);font-size:17px;font-weight:600;color:var(--white);margin-bottom:2px}
+.adr-lp .card-best-for{font-family:var(--font-heading);font-size:11px;font-weight:500;color:rgba(255,255,255,0.65);letter-spacing:0.2px}
+.adr-lp .card-badge{position:absolute;top:10px;right:10px;z-index:3;font-family:var(--font-heading);font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase}
+.adr-lp .badge-premium{background:var(--sand);color:var(--navy)}.adr-lp .badge-popular{background:var(--white);color:var(--navy)}
+.adr-lp .card-strip{background:var(--white);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-lg) var(--radius-lg);gap:8px}
+.adr-lp .card-strip-text{font-size:12px;color:var(--slate);line-height:1.4}.adr-lp .card-strip-text strong{color:var(--navy);font-weight:500}
+.adr-lp .card-arrow{width:28px;height:28px;border-radius:50%;background:var(--warm-white);display:flex;align-items:center;justify-content:center;transition:all 0.25s ease;color:var(--navy);font-size:13px;flex-shrink:0}
+.adr-lp .community-card:hover .card-arrow{background:var(--lake);color:var(--white)}
+.adr-lp .community-card.featured .card-strip{border-color:var(--sand)}
+.adr-lp .grid-note{text-align:center;font-size:14px;color:var(--slate);padding:8px 0}.adr-lp .grid-note strong{color:var(--navy)}
+
+/* GUIDANCE CTA */
+.adr-lp .guidance-cta{padding:0 0 60px;background:var(--white)}
+.adr-lp .guidance-card{background:var(--navy);border-radius:var(--radius-lg);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden}
+.adr-lp .guidance-card::before{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(74,139,173,0.12),transparent);pointer-events:none}
+.adr-lp .guidance-card h3{font-family:var(--font-heading);font-size:22px;font-weight:600;color:var(--white);margin-bottom:6px}
+.adr-lp .guidance-card p{font-size:15px;color:rgba(255,255,255,0.6);max-width:440px;line-height:1.55}
+.adr-lp .guidance-buttons{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
+
+/* BUDGET */
+.adr-lp .budget-section{padding:80px 0;background:var(--warm-white)}
+.adr-lp .budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.adr-lp .budget-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;position:relative}
+.adr-lp .budget-card::before{content:'';position:absolute;top:0;left:24px;right:24px;height:3px;border-radius:0 0 3px 3px}
+.adr-lp .budget-card.t-entry::before{background:var(--lake)}.adr-lp .budget-card.t-sweet::before{background:var(--sand)}.adr-lp .budget-card.t-prem::before{background:var(--navy)}
+.adr-lp .budget-range{font-family:var(--font-heading);font-size:24px;font-weight:600;color:var(--navy);margin-top:8px;margin-bottom:2px}
+.adr-lp .budget-label{font-family:var(--font-heading);font-size:13px;font-weight:500;color:var(--lake);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px}
+.adr-lp .budget-card>p{font-size:14px;color:var(--slate);line-height:1.55;margin-bottom:14px}
+.adr-lp .budget-areas{font-size:13px;color:var(--slate-light);line-height:1.5}.adr-lp .budget-areas strong{color:var(--navy);font-weight:500}
+
+/* MAP */
+.adr-lp .map-section{padding:80px 0;background:var(--white)}
+.adr-lp .map-container{max-width:900px;margin:0 auto;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.adr-lp .map-wrap{position:relative;width:100%}
+.adr-lp .map-wrap img{display:block;width:100%;height:auto}
+.adr-lp .map-pins{position:absolute;top:0;left:0;width:100%;height:100%}
+.adr-lp .pin{position:absolute;width:52px;height:52px;transform:translate(-50%,-50%);cursor:pointer;z-index:10;transition:transform .15s ease}
+.adr-lp .pin:hover{transform:translate(-50%,-50%) scale(1.15);z-index:50}
+.adr-lp .pin-dot{width:100%;height:100%;border-radius:50%;background:rgba(22,43,69,0.0);border:2px dashed transparent;transition:all .15s}
+.adr-lp .pin:hover .pin-dot{background:rgba(22,43,69,0.08);border-color:rgba(22,43,69,0.3)}
+.adr-lp .tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border-radius:8px;padding:14px 16px;width:255px;box-shadow:0 6px 24px rgba(0,0,0,.2);border-top:3px solid var(--navy);opacity:0;visibility:hidden;transition:all .18s ease;pointer-events:none;z-index:100;line-height:1.45}
+.adr-lp .tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#fff}
+.adr-lp .pin:hover .tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:all}
+.adr-lp .pin.edge-r .tip{left:auto;right:-8px;transform:translateX(0) translateY(6px)}.adr-lp .pin.edge-r:hover .tip{transform:translateX(0) translateY(0)}.adr-lp .pin.edge-r .tip::after{left:auto;right:20px}
+.adr-lp .pin.edge-l .tip{left:-8px;transform:translateX(0) translateY(6px)}.adr-lp .pin.edge-l:hover .tip{transform:translateX(0) translateY(0)}.adr-lp .pin.edge-l .tip::after{left:20px}
+.adr-lp .pin.tip-below .tip{bottom:auto;top:calc(100% + 6px);transform:translateX(-50%) translateY(-6px)}.adr-lp .pin.tip-below:hover .tip{transform:translateX(-50%) translateY(0)}.adr-lp .pin.tip-below .tip::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:#fff}
+.adr-lp .tip h4{font-family:var(--font-heading);font-size:15px;color:var(--navy);margin-bottom:5px;display:flex;align-items:center;gap:7px}
+.adr-lp .tip-n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--font-heading);font-size:11px;font-weight:700;flex-shrink:0}
+.adr-lp .tip-n.star{background:var(--cta-red);font-size:13px}
+.adr-lp .tip p{font-size:12.5px;color:#555;margin-bottom:8px}
+.adr-lp .tip a{font-size:12.5px;font-weight:600;color:var(--lake);text-decoration:none}.adr-lp .tip a:hover{text-decoration:underline}
+.adr-lp .map-hint{text-align:center;padding:14px;font-size:14px;color:var(--slate);border-top:1px solid var(--border)}.adr-lp .map-hint strong{color:var(--navy)}
+@media(max-width:600px){.adr-lp .pin{width:44px;height:44px}.adr-lp .tip{display:none!important}}
+
+/* LEAD CAPTURE */
+.adr-lp .capture-section{padding:80px 0;background:var(--warm-white)}
+.adr-lp .capture-card{background:var(--navy);border-radius:var(--radius-lg);overflow:hidden}
+.adr-lp .capture-grid{display:grid;grid-template-columns:1fr 1fr}
+.adr-lp .capture-left{padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+.adr-lp .capture-left h2{font-family:var(--font-heading);font-size:28px;font-weight:600;color:var(--white);margin-bottom:12px;line-height:1.2}
+.adr-lp .capture-left>p{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:24px}
+.adr-lp .capture-trust{display:flex;align-items:center;gap:14px}
+.adr-lp .capture-photo{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,0.2);flex-shrink:0}
+.adr-lp .capture-trust-text{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.4}.adr-lp .capture-trust-text strong{color:var(--white);display:block;font-weight:600;font-size:14px}
+.adr-lp .capture-right{background:var(--white);padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+.adr-lp .capture-form{display:flex;flex-direction:column;gap:14px}
+.adr-lp .capture-form input,.adr-lp .capture-form select{font-family:var(--font-body);font-size:15px;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--white);color:var(--navy);outline:none;transition:border-color 0.2s;width:100%}
+.adr-lp .capture-form input:focus,.adr-lp .capture-form select:focus{border-color:var(--lake)}
+.adr-lp .capture-form input::placeholder{color:var(--slate-light)}
+.adr-lp .capture-form .btn-cta{width:100%;justify-content:center;font-size:16px;padding:16px}
+.adr-lp .form-note{font-size:12px;color:var(--slate-light);text-align:center;margin-top:2px}
+
+/* JASON TRUST */
+.adr-lp .trust-section{padding:60px 0 80px;background:var(--warm-white)}
+.adr-lp .trust-card{max-width:680px;margin:0 auto;text-align:center}
+.adr-lp .jason-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;margin:0 auto 16px;display:block;border:3px solid var(--white);box-shadow:0 4px 12px rgba(22,43,69,0.12)}
+.adr-lp .trust-card h3{font-family:var(--font-heading);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.adr-lp .trust-card .title{font-size:14px;color:var(--lake);font-weight:500;margin-bottom:16px}
+.adr-lp .trust-card .bio{font-size:15px;color:var(--slate);line-height:1.65;margin-bottom:24px}
+
+/* FOOTER */
+.adr-lp .page-footer{background:var(--navy);padding:28px 0;text-align:center}
+.adr-lp .page-footer p{font-size:13px;color:rgba(255,255,255,0.4)}
+
+/* RESPONSIVE */
+@media(max-width:900px){.adr-lp .community-grid{grid-template-columns:repeat(2,1fr)}.adr-lp .budget-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){
+.adr-lp .community-grid{grid-template-columns:1fr}
+.adr-lp .budget-grid{grid-template-columns:1fr}
+.adr-lp .capture-grid{grid-template-columns:1fr}
+.adr-lp .hero h1{font-size:28px}
+.adr-lp .hero{padding:44px 0 44px;background-position:center 55%!important}
+.adr-lp .hero::before{background:linear-gradient(to bottom,rgba(15,30,51,0.93) 0%,rgba(15,30,51,0.8) 50%,rgba(15,30,51,0.6) 100%)!important}
+.adr-lp .hero-sub{color:rgba(255,255,255,0.9)}
+.adr-lp .hero-phone{flex-direction:column;align-items:flex-start;gap:4px}
+.adr-lp .hero-phone a{font-size:15px}
+.adr-lp .hero-phone span{color:rgba(255,255,255,0.75)}
+.adr-lp .trust-item{color:rgba(255,255,255,0.8)}
+.adr-lp .trust-number{color:var(--white)}
+.adr-lp .guidance-card{padding:28px 24px}
+.adr-lp .capture-left,.adr-lp .capture-right{padding:32px 24px}
+.adr-lp .card-image-wrap{height:120px}
+}
+@keyframes adrFadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.adr-lp .hero-content{animation:adrFadeUp 0.5s ease both}
+.adr-lp .trust-bar{animation:adrFadeUp 0.5s ease 0.15s both}
+
+/* Card expand reveal — dramatic scale+slide inspired by ScrollReveal */
+.adr-lp .community-card[data-adr-ready]{
+  opacity:0;
+  transform:scale(0.75) translateY(50px);
+  transition:opacity 0.7s cubic-bezier(0.2,0.6,0.35,1), transform 0.7s cubic-bezier(0.2,0.6,0.35,1);
+}
+.adr-lp .community-card[data-adr-revealed]{
+  opacity:1;
+  transform:scale(1) translateY(0);
+}
+</style>
+
+<div class="adr-lp">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">American Dream Realty &bull; Lake Texoma</p>
+      <h1>Lake Texoma homes &mdash; <span>search by the areas buyers actually ask about.</span></h1>
+      <p class="hero-sub">Not ZIP codes. Not MLS boundaries. The actual coves, marinas, and neighborhoods &mdash; organized the way the lake really works.</p>
+      <div class="hero-buttons">
+        <a href="#adr-communities" class="btn btn-cta">Browse communities &darr;</a>
+        <a href="/listing-report/All-Texoma-Homes/3005047/" class="btn btn-white">View all Lake Texoma homes</a>
+        <a href="#adr-shortlist" class="btn btn-secondary">Find my best areas</a>
+      </div>
+      <div class="hero-phone">
+        <a href="tel:5805646583">Call or text Jason: 580-564-6583</a>
+        <span>&bull; 15 years sellin' and a lifetime living on Lake Texoma</span>
+      </div>
+    </div>
+    <div class="trust-bar">
+      <div class="trust-item"><span class="trust-number">10</span> communities covered</div>
+      <div class="trust-item"><span class="trust-number">Live</span> MLS &mdash; updated daily</div>
+      <div class="trust-item"><span class="trust-number">$185K&ndash;$3M+</span> price range</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY CARDS -->
+<section class="communities-section" id="adr-communities">
+  <div class="container">
+    <div class="section-header">
+      <h2>Start with the area that fits how you'll use the lake</h2>
+      <p>Every community has a different feel, different access, and a different price point. Here's what each one is actually like.</p>
+    </div>
+    <div class="community-grid">
+
+      <a href="/listing-report/Bridgeview-Resort/2997906/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-bridgeview.jpg" alt="Bridgeview community" class="card-img"><div class="card-overlay"><h3>Bridgeview</h3><p class="card-best-for">Best for: families &bull; quiet cove &bull; sunrise views</p></div></div><div class="card-strip"><span class="card-strip-text">Sheltered cove near Madill &bull; <strong>covered slips</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Catfish-Bay/2997905/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-catfish.jpg" alt="Catfish Bay" class="card-img"><span class="card-badge badge-popular">Popular</span><div class="card-overlay"><h3>Catfish Bay</h3><p class="card-best-for">Best for: rental income &bull; resort traffic &bull; state park</p></div></div><div class="card-strip"><span class="card-strip-text">300+ slips &bull; <strong>strong rental demand</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Willow-Springs/2997924/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-willow.jpg" alt="Willow Springs" class="card-img"><div class="card-overlay"><h3>Willow Springs</h3><p class="card-best-for">Best for: first-time lake buyers &bull; budget-friendly</p></div></div><div class="card-strip"><span class="card-strip-text">Oklahoma shore &bull; <strong>lowest entry point</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Sandpoint/2997925/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-sand-point.jpg" alt="Sand Point" class="card-img"><div class="card-overlay"><h3>Sand Point</h3><p class="card-best-for">Best for: quiet residential &bull; beach access &bull; no crowds</p></div></div><div class="card-strip"><span class="card-strip-text">South shore &bull; <strong>direct lake access</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Washita-Point/2997903/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-washita.jpg" alt="Washita Point" class="card-img"><span class="card-badge badge-popular">Popular</span><div class="card-overlay"><h3>Washita Point</h3><p class="card-best-for">Best for: established neighborhoods &bull; Corps access</p></div></div><div class="card-strip"><span class="card-strip-text">Real neighborhood feel &bull; <strong>close to water</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Soldier-Creek/2997836/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-soldier.jpg" alt="Soldier Creek" class="card-img"><span class="card-badge badge-popular">Popular</span><div class="card-overlay"><h3>Soldier Creek</h3><p class="card-best-for">Best for: marina lifestyle &bull; golf carts &bull; social scene</p></div></div><div class="card-strip"><span class="card-strip-text">Marina del Rey &bull; <strong>most active hub</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Sandiest-Beaches-Texoma/2997907/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-beaches.jpg" alt="Sandy Beaches" class="card-img"><div class="card-overlay"><h3>Sandy Beaches</h3><p class="card-best-for">Best for: walk-to-sand &bull; day-use &bull; DFW weekenders</p></div></div><div class="card-strip"><span class="card-strip-text">Island View, Sandy Beach &bull; <strong>locals-only spots</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Cardinal-Cove/2997913/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-cardinal.jpg" alt="Cardinal Cove" class="card-img"><div class="card-overlay"><h3>Cardinal Cove</h3><p class="card-best-for">Best for: privacy &bull; off-the-beaten-path &bull; Kingston</p></div></div><div class="card-strip"><span class="card-strip-text">Sheltered cove &bull; <strong>no resort traffic</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Buncombe-Creek/2997916/" class="community-card"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-buncombe.jpg" alt="Buncombe Creek" class="card-img"><span class="card-badge badge-popular">Popular</span><div class="card-overlay"><h3>Buncombe Creek</h3><p class="card-best-for">Best for: fishing &bull; guide services &bull; laid-back marina</p></div></div><div class="card-strip"><span class="card-strip-text">Full-service marina &bull; <strong>golf cart streets</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+      <a href="/listing-report/Lakefront-Properties/2997908/" class="community-card featured"><div class="card-image-wrap"><img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/community-lakefront.jpg" alt="Lakefront Properties" class="card-img"><span class="card-badge badge-premium">Premium</span><div class="card-overlay"><h3>Lakefront Properties</h3><p class="card-best-for">Best for: true waterfront &bull; boathouse eligible &bull; both shores</p></div></div><div class="card-strip"><span class="card-strip-text">Premium inventory &bull; <strong>moves fast</strong></span><span class="card-arrow">&rarr;</span></div></a>
+
+    </div>
+    <p class="grid-note"><strong>Inventory changes daily.</strong> Some of the best properties never hit Zillow &mdash; they sell through local networks first.</p>
+  </div>
+</section>
+
+<!-- GUIDANCE CTA -->
+<section class="guidance-cta">
+  <div class="container">
+    <div class="guidance-card">
+      <div>
+        <h3>Not sure which area actually fits?</h3>
+        <p>Tell me how you'll use the property &mdash; marina access, price range, distance from Dallas &mdash; and I'll narrow it to 2 or 3 areas worth your time.</p>
+      </div>
+      <div class="guidance-buttons">
+        <a href="tel:5805646583" class="btn btn-cta">Call or text Jason</a>
+        <a href="#adr-shortlist" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.3);">Get matched to an area</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Or find it on the map</h2>
+      <p>Hover any pin to preview a community &mdash; click to jump straight to live listings.</p>
+    </div>
+    <div class="map-container">
+      <div class="map-wrap">
+        <img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/texoma-map.jpg" alt="Lake Texoma Community Map">
+        <div class="map-pins" id="adr-pins"></div>
+      </div>
+      <p class="map-hint"><strong>Hover a pin</strong> to preview &mdash; click to jump straight to live listings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section class="budget-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What does your budget get at Lake Texoma?</h2>
+      <p>Prices depend on location, water access, and whether the property is lakefront, lake-adjacent, or inland.</p>
+    </div>
+    <div class="budget-grid">
+      <div class="budget-card t-entry"><p class="budget-range">Under $300K</p><p class="budget-label">Entry point</p><p>Cabins, older manufactured homes, and inland lots. You're in the lake lifestyle, but you may be driving to the ramp.</p><p class="budget-areas"><strong>Common areas:</strong> Willow Springs, Washita Point, Buncombe Creek</p></div>
+      <div class="budget-card t-sweet"><p class="budget-range">$300K &ndash; $600K</p><p class="budget-label">Sweet spot</p><p>Updated site-built homes, some with lake proximity or shared dock access. Where most Texoma buyers land.</p><p class="budget-areas"><strong>Common areas:</strong> Soldier Creek, Sand Point, Catfish Bay, Cardinal Cove</p></div>
+      <div class="budget-card t-prem"><p class="budget-range">$600K+</p><p class="budget-label">Lakefront &amp; premium</p><p>True waterfront, private docks, boathouse permits. Limited inventory &mdash; these move fast when they hit the market.</p><p class="budget-areas"><strong>Common areas:</strong> Lakefront Properties, Bridgeview, select Soldier Creek</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD CAPTURE -->
+<section class="capture-section" id="adr-shortlist">
+  <div class="container">
+    <div class="capture-card">
+      <div class="capture-grid">
+        <div class="capture-left">
+          <h2>Find the 2&ndash;3 areas that actually fit your budget and lifestyle.</h2>
+          <p>Stop browsing 10 communities when only 2 or 3 make sense for how you'll use the property. Tell me what matters and I'll narrow it down fast.</p>
+          <div class="capture-trust">
+            <img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/jason-hightower.jpg" alt="Jason Hightower" class="capture-photo">
+            <div class="capture-trust-text"><strong>Jason Hightower</strong>Broker/Owner &bull; 15 years at Texoma</div>
+          </div>
+        </div>
+        <div class="capture-right">
+          <div class="capture-form">
+            <input type="text" placeholder="Your name">
+            <input type="email" placeholder="Email">
+            <input type="tel" placeholder="Phone (optional)">
+            <select><option value="" disabled selected>What matters most?</option><option>Marina access &amp; covered slips</option><option>Sandy beach / walk-to-water</option><option>Under $300K</option><option>$300K &ndash; $600K</option><option>$600K+ / lakefront</option><option>Rental income potential</option><option>Close to Dallas (under 2 hrs)</option><option>Waterfront with dock/boathouse</option><option>Just exploring &mdash; show me everything</option></select>
+            <button class="btn btn-cta">Find my best areas</button>
+            <p class="form-note">Usually responds same day. No spam, no drip campaigns.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JASON TRUST -->
+<section class="trust-section">
+  <div class="container">
+    <div class="trust-card">
+      <img src="https://americandreamrealtyok.com/wp-content/uploads/2026/05/jason-hightower.jpg" alt="Jason Hightower - American Dream Realty" class="jason-photo">
+      <h3>Jason Hightower</h3>
+      <p class="title">Broker/Owner &bull; American Dream Realty &bull; Lake Texoma</p>
+      <p class="bio">Born and raised on Lake Texoma. 15 years selling real estate here. I don't just work this market &mdash; I've lived it my entire life. I know every cove, marina, and community, and which ones actually fit what you're looking for. Anyone can run an IDX search. I can tell you whether a property puts you in the same cove as your friend's cabin &mdash; or whether it's a "lake view" from the second-floor bathroom window on a clear day.</p>
+      <a href="tel:5805646583" class="btn btn-cta">Call or text &mdash; 580-564-6583</a>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer"><div class="container"><p>&copy; 2026 American Dream Realty &bull; Lake Texoma, Oklahoma</p></div></footer>
+
+</div><!-- end .adr-lp -->
+
+<script>
+/* MAP PINS */
+(function(){
+  var C=[
+    {id:"1",n:"Bridgeview",d:"Sheltered cove near Madill. Covered slips, fuel dock, family campground with direct water access.",x:61.3,y:20.7,cls:"tip-below",url:"/listing-report/Bridgeview-Resort/2997906/"},
+    {id:"2",n:"Catfish Bay",d:"Inside Lake Texoma State Park. 300+ covered slips, full-service marina. Casino & resort traffic nearby.",x:62.7,y:32.1,url:"/listing-report/Catfish-Bay/2997905/"},
+    {id:"3",n:"Willow Springs",d:"Oklahoma shore marina. Cabins, RV sites, boat ramps. One of the lowest price entry points at Texoma.",x:71.3,y:35.8,cls:"edge-r",url:"/listing-report/Willow-Springs/2997924/"},
+    {id:"4",n:"Sand Point",d:"South shore, direct lake access. Less commercial, more residential. Close to beaches and open water.",x:71.6,y:46.7,cls:"edge-r",url:"/listing-report/Sandpoint/2997925/"},
+    {id:"5",n:"Washita Point",d:"Established lakeside neighborhood. Site-built homes with Corps of Engineers access. Real neighborhood feel.",x:65.3,y:49.1,url:"/listing-report/Washita-Point/2997903/"},
+    {id:"6",n:"Soldier Creek",d:"Marina del Rey at the center. Fuel dock, restaurant, pool, golf cart streets. Most active marina hub.",x:56.0,y:50.2,url:"/listing-report/Soldier-Creek/2997836/"},
+    {id:"7",n:"Sandy Beaches",d:"Island View Park, Sandy Beach, Oakview. The sandiest public beaches on the lake. Locals-only spots.",x:50.3,y:64.3,url:"/listing-report/Sandiest-Beaches-Texoma/2997907/"},
+    {id:"8",n:"Cardinal Cove",d:"Sheltered cove near Kingston. Quieter setting for buyers who want lake access off the beaten path.",x:40.7,y:62.4,url:"/listing-report/Cardinal-Cove/2997913/"},
+    {id:"9",n:"Buncombe Creek",d:"Paved ramps, fuel, tackle shop, guide services. Cabins and homes on golf cart streets near the marina.",x:38.2,y:56.7,url:"/listing-report/Buncombe-Creek/2997916/"},
+    {id:"\u2605",n:"Lakefront Properties",d:"True waterfront with boathouses or permit eligibility. Premium inventory that moves fast.",x:52.2,y:59.7,star:true,url:"/listing-report/Lakefront-Properties/2997908/"}
+  ];
+  var p=document.getElementById('adr-pins');
+  if(p){
+    for(var i=0;i<C.length;i++){
+      var c=C[i];
+      var d=document.createElement('a');
+      d.href=c.url;
+      d.className='pin'+(c.cls?' '+c.cls:'');
+      d.style.left=c.x+'%';
+      d.style.top=c.y+'%';
+      var nCls=c.star?'tip-n star':'tip-n';
+      d.innerHTML='<div class="pin-dot"></div><div class="tip"><h4><span class="'+nCls+'">'+c.id+'</span>'+c.n+'</h4><p>'+c.d+'</p><span style="font-size:12.5px;font-weight:600;color:#4A8BAD;">View homes \u2192</span></div>';
+      p.appendChild(d);
+    }
+  }
+})();
+
+/* CARD EXPAND REVEAL — setInterval + scroll/touchmove + rAF (ScrollReveal pattern) */
+var _adrPoll = setInterval(function(){
+  var cards = document.querySelectorAll('.adr-lp .community-card');
+  if(!cards || cards.length === 0) return;
+  clearInterval(_adrPoll);
+
+  var delays = [0,100,200,0,100,200,0,100,200,0];
+  for(var i = 0; i < cards.length; i++){
+    cards[i].setAttribute('data-adr-ready','');
+    cards[i].style.transitionDelay = delays[i] + 'ms';
+  }
+
+  var ticking = false;
+  function adrCheck(){
+    var wh = window.innerHeight || document.documentElement.clientHeight;
+    for(var j = 0; j < cards.length; j++){
+      if(cards[j].hasAttribute('data-adr-revealed')) continue;
+      var rect = cards[j].getBoundingClientRect();
+      if(rect.top < wh - 40){
+        cards[j].setAttribute('data-adr-revealed','');
+      }
+    }
+    ticking = false;
+  }
+
+  function onScroll(){
+    if(!ticking){
+      ticking = true;
+      if(window.requestAnimationFrame){
+        window.requestAnimationFrame(adrCheck);
+      } else {
+        setTimeout(adrCheck, 16);
+      }
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, false);
+  window.addEventListener('touchmove', onScroll, false);
+  adrCheck();
+}, 200);
+</script>
